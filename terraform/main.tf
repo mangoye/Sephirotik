@@ -20,10 +20,10 @@ resource "aws_launch_configuration" "example" {
 resource "aws_security_group" "instance" {
   name = "terraform-example-instance"
   ingress {
-    from_port   = "${var.server_port}"
-    to_port     = "${var.server_port}"
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    from_port    = "${var.server_port}"
+    to_port      = "${var.server_port}"
+    protocol     = "tcp"
+    cidr_blocks  = ["0.0.0.0/0"]
   }
   lifecycle {
     create_before_destroy = true
@@ -77,7 +77,7 @@ resource "aws_elb" "example" {
 
   health_check {
     healthy_threshold   = 2
-    unhealthy_threshold  = 2
+    unhealthy_threshold = 2
     timeout             = 3
     interval            = 30
     target              = "HTTP:${var.server_port}/"
@@ -90,7 +90,7 @@ variable "server_port" {
 }
 
 output "elb_dns_name" {
-  value      = "${aws_elb.example.dns_name}"
+  value       = "${aws_elb.example.dns_name}"
 }
 
 data "aws_availability_zones" "all" {
