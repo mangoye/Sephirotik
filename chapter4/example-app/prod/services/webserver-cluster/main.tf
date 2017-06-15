@@ -7,6 +7,6 @@ module "webserver_cluster" {
 
 
   cluster_name           = "webservers-prod"
-  db_remote_state_bucket = ""
-  dd_remote_state_key    = "/stage/data-stores/mysql/terraform.tfstate"
+  db_remote_state_bucket = "terraform-up-and-running-mangoyes"
+  db_remote_state_key    = "/prod/data-stores/mysql/terraform.tfstate"
 }
